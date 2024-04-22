@@ -1,5 +1,6 @@
 NUM_WARMUPS=5
 BENCHMARK_TARGETS=rust/target/release/rust rust2/target/release/rust2 rust2memoized/target/release/rust2memoized rust2precalc/target/release/rust2precalc ocaml/_build/default/bin/main.exe "python3 python/__pycache__/main.cpython-311.pyc" "python3 pythonMemoized/__pycache__/main.cpython-311.pyc" swift/.build/release/swift rust2parallel/target/release/rust2parallel
+FACTOR_N=24
 
 .PHONY: all benchmark rust ocaml rust2 rust2memoized rust2precalc python pythonMemoized swift rust2parallel
 all: rust ocaml rust2 rust2memoized rust2precalc python pythonMemoized swift rust2parallel
@@ -19,7 +20,7 @@ python:
 pythonMemoized:
 	cd pythonMemoized && python3 -m py_compile main.py
 swift:
-	cd swift && swift build -c release
+	$(MAKE) -C swift build FACTOR_N=$(FACTOR_N)
 rust2parallel:
 	cd rust2parallel && cargo build --release
 
@@ -34,5 +35,5 @@ clean:
 	rm -rf ocaml/_build
 	rm -rf python/__pycache__
 	rm -rf pythonMemoized/__pycache__
-	rm -rf swift/.build
+	$(MAKE) -C swift clean
 	rm -rf rust2parallel/target

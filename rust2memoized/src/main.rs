@@ -50,7 +50,7 @@ fn solve(pool: BitSet) -> u64 {
 }
 
 fn main() {
-    let n = 24;
+    let n = option_env!("FACTOR_N").unwrap_or("24").parse::<usize>().unwrap();
     println!("{}", solve(BitSet(((1 << (n + 1)) - 1) & (!1))));
 }
 

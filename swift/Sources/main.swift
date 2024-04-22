@@ -1,3 +1,5 @@
+let FACTOR_N = 2
+
 private func factorExists(num: Int, pool: [Int]) -> Bool {
     for i in pool {
         if (num != i && num % i == 0) {
@@ -30,4 +32,4 @@ func solve(pool: [Int]) -> [[Int]] {
     return res
 }
 
-let _ = solve(pool: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24])
+let _ = solve(pool: Array(1...FACTOR_N))
