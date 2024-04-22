@@ -1,5 +1,5 @@
 NUM_WARMUPS=5
-BENCHMARK_TARGETS=rust/target/release/rust rust2/target/release/rust2 rust2memoized/target/release/rust2memoized rust2precalc/target/release/rust2precalc ocaml/_build/default/bin/main.exe "python3 python/__pycache__/main.*.pyc" "python3 pythonMemoized/__pycache__/main.*.pyc" swift/.build/release/swift
+BENCHMARK_TARGETS=rust/target/release/rust rust2/target/release/rust2 rust2memoized/target/release/rust2memoized rust2precalc/target/release/rust2precalc ocaml/_build/default/bin/main.exe "python3 python/__pycache__/main.cpython-311.pyc" "python3 pythonMemoized/__pycache__/main.cpython-311.pyc" swift/.build/release/swift
 
 .PHONY: all benchmark rust ocaml rust2 rust2memoized rust2precalc python pythonMemoized swift
 all: rust ocaml rust2 rust2memoized rust2precalc python pythonMemoized swift
